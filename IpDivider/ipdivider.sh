@@ -26,9 +26,9 @@ select_pieces(){
 	select piece in "2 pieces" "4 pieces" "6 pieces" "8 pieces" "16 pieces" "32 pieces" "64 pieces" "128 pieces"
 		do
 			case $(grep -Eo "[0-9]+" <<<$piece) in
-				2) 		declare_pieces ${binary[0]}; break ;;
-				4) 		declare_pieces ${binary[1]}; break ;;
-				8) 		declare_pieces ${binary[2]}; break ;;
+				2) 	declare_pieces ${binary[0]}; break ;;
+				4) 	declare_pieces ${binary[1]}; break ;;
+				8) 	declare_pieces ${binary[2]}; break ;;
 				16) 	declare_pieces ${binary[3]}; break ;;
 				32) 	declare_pieces ${binary[4]}; break ;;
 				64) 	declare_pieces ${binary[5]}; break ;;
