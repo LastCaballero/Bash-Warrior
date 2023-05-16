@@ -54,6 +54,6 @@ for key in ${!Networks[@]}
 do
 	echo "Nethwork: ${oct}${key}:"
 	echo "****************************"
-	echo "${Networks[$key]}"
+	echo "${Networks[$key]}" | sed 's/ /&\n/g; s/\n/&&/3; s/\n/ /g'
 done
 
