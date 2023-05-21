@@ -32,7 +32,7 @@ do
 	Networks[$key]+="${three}.$ip "	
 done
 
-for key in ${!Networks[@]}
+for key in $( sed 's/ /\n/g' <<<${!Networks[@]} | sort -n -k 4 -t "."  )
 do
 	echo
 	echo $key
