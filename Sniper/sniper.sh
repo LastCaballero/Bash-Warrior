@@ -37,3 +37,10 @@ declare -A netcat_scan_techniques=(
     ["TCP Xmas scan"]="-zvn -sX"
     ["TCP ACK scan"]="-zvn -sA"
 )
+
+scan_with_bash(){
+        tcp_or_udp=$1
+        target=$2
+        port=$2
+        echo > /dev/${tcp_or_udp}/${target}/$port &>/dev/null && echo $port
+}
