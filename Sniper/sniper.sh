@@ -29,13 +29,8 @@ declare -A nmap_scan_techniques=(
 )
 
 declare -A netcat_scan_techniques=(
-    ["TCP SYN scan"]="-zvn -sS"
-    ["TCP connect scan"]="-zvn -sT"
+    ["TCP scan"]="-zvn"
     ["UDP scan"]="-zvn -u"
-    ["TCP Null scan"]="-zvn -sN"
-    ["TCP FIN scan"]="-zvn -sF"
-    ["TCP Xmas scan"]="-zvn -sX"
-    ["TCP ACK scan"]="-zvn -sA"
 )
 
 scan_with_bash(){
