@@ -3,13 +3,12 @@
 LOCALNETWORK=$( ip route show | grep -Eo "([0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,2}" )
 
 services=$(cat /etc/services | gawk '
-BEGIN {
-     FS = "/| |\t+"
-}
-/^[a-zA-Z]/{
-     print $1, $2, $3
-}
-' | sort -k 3)
+     BEGIN {
+          FS = "/| |\t+"
+     }
+     /^[a-zA-Z]/{
+          print $1, $2, $3
+}' | sort -k 3)
 
 tcp_ports=( $(grep -i "tcp" <<<$services) )
 udp_ports=( $(grep -i "udp" <<<$services) )
