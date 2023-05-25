@@ -14,9 +14,7 @@ BEGIN {
 tcp_ports=( $(grep -i "tcp" <<<$services) )
 udp_ports=( $(grep -i "udp" <<<$services) )
 
-
 filter_host_ip='grep -Eo "[^ ]+ (([0-9]{1,3}\.){3}[0-9]{1,3}" | sed "s/(//'
-
 
 declare -A nmap_scan_techniques=(
     ["TCP SYN scan"]="-sS"
@@ -28,4 +26,14 @@ declare -A nmap_scan_techniques=(
     ["TCP ACK scan"]="-sA"
     ["TCP Window scan"]="-sW"
         ["UP Scan"]="-sn"
+)
+
+declare -A netcat_scan_techniques=(
+    ["TCP SYN scan"]="-zvn -sS"
+    ["TCP connect scan"]="-zvn -sT"
+    ["UDP scan"]="-zvn -u"
+    ["TCP Null scan"]="-zvn -sN"
+    ["TCP FIN scan"]="-zvn -sF"
+    ["TCP Xmas scan"]="-zvn -sX"
+    ["TCP ACK scan"]="-zvn -sA"
 )
