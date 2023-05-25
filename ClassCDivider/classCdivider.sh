@@ -2,11 +2,19 @@
 
 declare -A Networks
 
-NWA=$1
+HOMENET=$(
+	ip route show |
+	sed -n '/default/,+1p' | 
+	gawk 'FNR == 2 { print $2}' |
+	sed -r 's/\/.+$//'
+)
+
+NWA=${1:-$HOMENET}
 octets=( $(echo $NWA | tr "." " ") )
 if [[ ${#octets[@]} != 4 ]]; then
 	echo "an ip-address has 4 octets"
 	echo "for example: 200.200.200.1"
+	
 fi
 three=$(sed 's/ /./g' <<<${octets[*]:0:3})
 
