@@ -25,7 +25,7 @@ declare -A nmap_scan_techniques=(
     ["TCP Xmas scan"]="-sX"
     ["TCP ACK scan"]="-sA"
     ["TCP Window scan"]="-sW"
-        ["UP Scan"]="-sn"
+    ["UP Scan"]="-sn"
 )
 
 declare -A netcat_scan_techniques=(
