@@ -34,7 +34,7 @@ echo ${!dividers[@]}
 read divider
 divider=${dividers[$divider]} 
 
-for ip in {1..255}
+for ip in {0..255}
 do
 	key="${three}."$(( $ip & $divider))
 	Networks[$key]+="${three}.$ip "	
