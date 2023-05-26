@@ -45,5 +45,5 @@ do
 	echo
 	echo $key
 	echo "*********************************************"
-	echo ${Networks[$key]} 
+	echo ${Networks[$key]} | sed -r 's/(([^ ]+ ){4})/\1\n/g'
 done
