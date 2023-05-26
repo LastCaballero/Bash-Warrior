@@ -42,8 +42,12 @@ done
 
 for key in $( sed 's/ /\n/g' <<<${!Networks[@]} | sort -n -k 4 -t "."  )
 do
+	sub_array=( ${Networks[$key]} )
 	echo
-	echo $key
+	echo "base address: $key, broadcast address: ${sub_array[-1]} "
 	echo "*********************************************"
-	echo ${Networks[$key]} | sed -r 's/(([^ ]+ ){4})/\1\n/g'
+	echo ${sub_array[*]} | sed -r 's/(([^ ]+ ){4})/\1\n/g'
 done
+
+echo
+echo "ip addresses per network: ${#sub_array[@]}"
