@@ -34,20 +34,28 @@ echo ${!dividers[@]}
 read divider
 divider=${dividers[$divider]} 
 
-for ip in {0..255}
-do
-	key="${three}."$(( $ip & $divider))
-	Networks[$key]+="${three}.$ip "	
-done
+function collect(){
+	for ip in {0..255}
+	do
+		key="${three}."$(( $ip & $divider))
+		Networks[$key]+="${three}.$ip "	
+	done
+}
+collect
+
+function long_output(){
+	local first=$1
+	local members=( $( sed -r 's/[^ ]+$//' <<<${@:2} ) )
+	local last=${@: -1}
+	echo
+	printf "%-22s %s\n" "base address:" "$first"
+	printf "%-22s %s\n" "broadcast address:" "$last"
+	printf "%-22s %s\n" "user addresses:" "${#members[@]}"
+	echo "****************************************************************"
+	echo ${members[*]} | sed -r 's/(([^ ]+ ){4})/\1\n/g'
+}
 
 for key in $( sed 's/ /\n/g' <<<${!Networks[@]} | sort -n -k 4 -t "."  )
 do
-	sub_array=( ${Networks[$key]} )
-	echo
-	echo "base address: $key, broadcast address: ${sub_array[-1]} "
-	echo "*********************************************"
-	echo ${sub_array[*]} | sed -r 's/(([^ ]+ ){4})/\1\n/g'
+	long_output ${Networks[$key]}
 done
-
-echo
-echo "ip addresses per network: ${#sub_array[@]}"
