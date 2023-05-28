@@ -7,7 +7,7 @@ case $# in
 		echo "we need either 0 or 1 argument"
 		echo "either you provide 0 or 1 arguments."
 		echo "in case of 0 arguments the network address will be provided autmatically."
-		echo "in case of 1 argument you provide a network address such for example: 200.200.200.0"
+		echo "in case of 1 argument you provide a network address such as: 200.200.200.0"
 		exit 1
 		;;
 esac
