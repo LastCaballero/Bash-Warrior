@@ -51,11 +51,34 @@ function long_output(){
 	printf "%-22s %s\n" "base address:" "$first"
 	printf "%-22s %s\n" "broadcast address:" "$last"
 	printf "%-22s %s\n" "user addresses:" "${#members[@]}"
-	echo "****************************************************************"
+	echo "***************************************************************"
 	echo ${members[*]} | sed -r 's/(([^ ]+ ){4})/\1\n/g'
 }
 
-for key in $( sed 's/ /\n/g' <<<${!Networks[@]} | sort -n -k 4 -t "."  )
+function short_output(){
+	local first=$1
+	local members=( $( sed -r 's/[^ ]+$//' <<<${@:2} ) )
+	local first_member=$members
+	local last_member=${members[@]: -1}
+	local last=${@: -1}
+	echo
+	printf "%-22s %s\n" "base address:" "$first"
+	printf "%-22s %s\n" "broadcast address:" "$last"
+	printf "%-22s %s\n" "user addresses:" "$first_member - $last_member" 
+}
+
+sorted_keys=$( sed 's/ /\n/g' <<<${!Networks[@]} | sort -n -k 4 -t "."  )
+
+for key in $sorted_keys
 do
 	long_output ${Networks[$key]}
+done
+
+echo
+echo "short notation/summary"
+echo "***************************************************************"
+
+for key in $sorted_keys
+do
+	short_output ${Networks[$key]}
 done
