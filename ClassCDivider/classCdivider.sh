@@ -44,8 +44,17 @@ dividers=(
 echo "how many pieces?"
 echo ${!dividers[@]}
 read divider
-divider=${dividers[$divider]} 
 
+case $divider in
+	2|4|8|16|32|64|128) 
+		divider=${dividers[$divider]}
+		;;
+	*) 
+		echo "Error occured. Please use only suggested dividers."
+		exit 1
+		;;
+esac
+ 
 function collect(){
 	for ip in {0..255}
 	do
