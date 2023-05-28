@@ -1,5 +1,17 @@
 #! /bin/bash
 
+case $# in
+	0) true ;;
+	1) true ;;
+	*) 
+		echo "we need either 0 or 1 argument"
+		echo "either you provide 0 or 1 arguments."
+		echo "in case of 0 arguments the network address will be provided autmatically."
+		echo "in case of 1 argument you provide a network address such for example: 200.200.200.0"
+		exit 1
+		;;
+esac
+
 declare -A Networks
 
 HOMENET=$(
