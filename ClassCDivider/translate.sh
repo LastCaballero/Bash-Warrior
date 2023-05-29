@@ -1,5 +1,14 @@
 #! /bin/bash
 
+function and_operation(){
+    local first=$1
+    local second=$2
+    local result=$(( 2#$first & 2#$second ))
+    echo "obase = 2; $first" | bc
+    echo "obase = 2; $second" | bc
+    echo "obase = 2; $result" | bc
+}
+
 function translate_ip(){
     local ip=$1
     local octets=( $( sed 's/\./ /g' <<< $ip ) )
@@ -15,4 +24,3 @@ function translate_ip(){
     echo "obase = 2; $result" | bc
 }
 
-translate_ip 255.255.255.0
