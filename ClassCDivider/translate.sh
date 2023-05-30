@@ -4,7 +4,7 @@ function get_nwa(){
     echo "obase=2;$(( 2#$1 & 2#$2 ))" | bc
 }
 
-function translate_ip(){
+function to_bin(){
     local ip=$1
     local octets=( $( sed 's/\./ /g' <<< $ip ) )
     local result=$((
@@ -19,6 +19,14 @@ function translate_ip(){
     echo "obase = 2; $result" | bc
 }
 
-translate_ip "192.168.178.20"
-translate_ip "255.255.255.0"
-get_nwa $(translate_ip "192.168.178.20") $(translate_ip "255.255.255.0")
+function show_bin(){
+    local ip=$(to_bin $1)
+    local mask=$(to_bin $2)
+    local nwa=$(get_nwa $ip $mask)
+    local left=30
+    printf "%-${left}s %s\n" "your ip:" "$ip"
+    printf "%-${left}s %s\n" "your mask:" "$mask"
+    printf "%-${left}s %s\n" "your network address:" "$nwa"
+}
+
+show_bin 192.168.178.20 255.255.255.0
