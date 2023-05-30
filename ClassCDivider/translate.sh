@@ -1,12 +1,7 @@
 #! /bin/bash
 
-function and_operation(){
-    local first=$1
-    local second=$2
-    local result=$(( 2#$first & 2#$second ))
-    echo "obase = 2; $first" | bc
-    echo "obase = 2; $second" | bc
-    echo "obase = 2; $result" | bc
+function get_nwa(){
+    echo "obase=2;$(( 2#$1 & 2#$2 ))" | bc
 }
 
 function translate_ip(){
@@ -24,3 +19,6 @@ function translate_ip(){
     echo "obase = 2; $result" | bc
 }
 
+translate_ip "192.168.178.20"
+translate_ip "255.255.255.0"
+get_nwa $(translate_ip "192.168.178.20") $(translate_ip "255.255.255.0")
