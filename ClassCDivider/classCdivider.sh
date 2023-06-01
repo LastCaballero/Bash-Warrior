@@ -1,14 +1,17 @@
 #! /bin/bash
+reg_for_ip='([0-9]{1,3}\.){3}[0-9]{1,3}'
 
 case $# in
 	0) true ;;
-	1) true ;;
+	1) 
+		grep -E -q $reg_for_ip <<<$1 ||
+		{ 
+			echo "not a regular ip or network address. An ip is something like that: 200.200.200.0"
+			exit 1
+		}
+		;;
 	*) 
-		echo "we need either 0 or 1 argument"
-		echo "either you provide 0 or 1 arguments."
-		echo "in case of 0 arguments the network address will be provided autmatically."
-		echo "in case of 1 argument you provide a network address such as: 200.200.200.0"
-		exit 1
+		echo "Too much arguments provided. Only 1 will be used."
 		;;
 esac
 
@@ -17,12 +20,13 @@ declare -A Networks
 HOMENET=$( ip route show | grep "/24" | gawk -F "( |/)+" '{ print $2}' )
 
 NWA=${1:-$HOMENET}
+
 octets=( $(echo $NWA | tr "." " ") )
 if [[ ${#octets[@]} != 4 ]]; then
 	echo "an ip-address has 4 octets"
 	echo "for example: 200.200.200.1"
-	
 fi
+
 three=$(sed 's/ /./g' <<<${octets[*]:0:3})
 
 
