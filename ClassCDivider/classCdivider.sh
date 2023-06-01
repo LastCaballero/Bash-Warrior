@@ -31,7 +31,6 @@ fi
 
 three=$(sed 's/ /./g' <<<${octets[*]:0:3})
 
-
 dividers=( 
 	[2]=$(( 2#10000000 ))
 	[4]=$(( 2#11000000 ))
@@ -46,11 +45,9 @@ echo ${!dividers[@]}
 read divider
 
 case $divider in
-	2|4|8|16|32|64|128) 
-		divider=${dividers[$divider]}
+	2|4|8|16|32|64) divider=${dividers[$divider]}
 		;;
-	*) 
-		echo "Error occured. Please use only suggested dividers."
+	*) echo "Error occured. Please use only suggested dividers."
 		exit 1
 		;;
 esac
