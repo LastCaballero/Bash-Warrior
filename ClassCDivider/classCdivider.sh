@@ -24,11 +24,6 @@ declare -A Networks
 NWA=${1:-$HOMENET}
 
 octets=( $(echo $NWA | tr "." " ") )
-if [[ ${#octets[@]} != 4 ]]; then
-	echo "an ip-address has 4 octets"
-	echo "for example: 200.200.200.1"
-fi
-
 three=$(sed 's/ /./g' <<<${octets[*]:0:3})
 
 dividers=( 
