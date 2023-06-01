@@ -14,7 +14,7 @@ esac
 
 declare -A Networks
 
-HOMENET=$( ip route show | grep "/24" | gawk -F " |/" '{ print $2}' )
+HOMENET=$( ip route show | grep "/24" | gawk -F "( |/)+" '{ print $2}' )
 
 NWA=${1:-$HOMENET}
 octets=( $(echo $NWA | tr "." " ") )
