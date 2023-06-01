@@ -1,23 +1,25 @@
 #! /bin/bash
-reg_for_ip='([0-9]{1,3}\.){3}[0-9]{1,3}'
+
+function check_ip(){
+	local reg_for_ip='([0-9]{1,3}\.){3}[0-9]{1,3}'
+	grep -E -q $reg_for_ip <<<$1 && true || false
+}
 
 case $# in
 	0) true ;;
-	1) 
-		grep -E -q $reg_for_ip <<<$1 ||
+	1) check_ip $1 ||
 		{ 
-			echo "not a regular ip or network address. An ip is something like that: 200.200.200.0"
+			echo "not a regular ip. An ip is something like that: 200.200.200.0"
 			exit 1
 		}
 		;;
-	*) 
-		echo "Too much arguments provided. Only 1 will be used."
+	*) echo "Too much arguments provided. Only 1 will be used."
+		check_ip $1 || { echo "not regular ip. exiting..."; exit 1 ; }
 		;;
 esac
 
-declare -A Networks
-
 HOMENET=$( ip route show | grep "/24" | gawk -F "( |/)+" '{ print $2}' )
+declare -A Networks
 
 NWA=${1:-$HOMENET}
 
