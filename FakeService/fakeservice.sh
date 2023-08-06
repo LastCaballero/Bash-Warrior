@@ -1,23 +1,18 @@
 #! /bin/bash
 
-test -p attacks || mkfifo attacks
-
 start_fake_service(){
-        port=$1
-        while true
-        do
-                netcat -W 1 -l $port
-                echo "attack at $(date) at $port" > attacks
-        done
+	port=$1
+	logfile="${port}.log"
+	while true
+	do
+		netcat -v -l $port 2>&1 |
+		while read line
+			do echo "$(date) $line"
+		done >> $logfile
+	done
 }
 
-for run in {4000..4004}
+for fake in $@
 do
-        start_fake_service $run &
-done
-
-while true
-do
-        cat < attacks
-        sleep 1
+	start_fake_service $fake &
 done
