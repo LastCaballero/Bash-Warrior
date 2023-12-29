@@ -1,0 +1,13 @@
+1. Install a terminal emulator on Android
+
+2. On your Android-Phone make a fifo-file:
+
+            mkfifo connection
+
+3. After this also on your Android-Phone : 
+            
+            cat connection | sh 2>&1 | nc -l -p 4000 > connection
+
+4. After this you can connect with other devices to your Android-Phone with netcat:
+            
+            netcat ipofphone 4000
