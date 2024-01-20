@@ -1,5 +1,6 @@
 #! /bin/bash
 DIRECTORY=$1
+TIME=$2
 
 
 
