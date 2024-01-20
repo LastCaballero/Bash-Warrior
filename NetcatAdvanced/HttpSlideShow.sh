@@ -7,7 +7,7 @@ sedcode=''
 
 for image in $( ls *jpg ) 
 do
-	sed $sedcode <<HTTP| netcat -N - l 4000
+	sed $sedcode <<HTTP | netcat -N - l 4000
 	
 	
 	HTTP
