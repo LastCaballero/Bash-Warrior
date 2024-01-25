@@ -2,11 +2,18 @@
 
 if [ ! -z $1 ]; then
     IMAGEDIR=$1
-    echo $IMAGEDIR
 else
-    echo "directory where images are needed"
+    echo "directory with images inside is needed"
     echo "f.e. ./slideshow Pictures"
 fi
+
+if [ -z $2 ]; then
+    TIME=5
+else
+    TIME=$2
+fi
+
+
 
 IMAGES=( $( ls $IMAGEDIR/*{jpg,png,JPG,PNG} 2>/dev/null ) )
 
@@ -22,7 +29,7 @@ for image in ${IMAGES[@]}; do
 HTTP/1.1 200 Ok
 Content-Type: $type
 Content-Length: $len
-Refresh: 5
+Refresh: $TIME
 Connection: close
 
 HTTP
