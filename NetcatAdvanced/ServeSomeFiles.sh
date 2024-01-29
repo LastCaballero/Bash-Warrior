@@ -17,7 +17,7 @@ elif [ -z $1 ]; then
     done
 
 else
-        MESSAGE="No Files available or some other occured"
+        MESSAGE="No Files available or some other error occured"
         echo $MESSAGE | netcat -N -l 4000
         exit 1
 fi
