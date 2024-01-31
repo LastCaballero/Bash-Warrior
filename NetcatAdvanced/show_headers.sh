@@ -9,7 +9,7 @@ Accept: */*
 Accept-Encoding: identity
 Connection: close
 
-" | ncat $URL 443 |
+" | ncat -ssl $URL 443 |
     sed -n -r '
         1 p ;
         :loop
