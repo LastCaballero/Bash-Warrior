@@ -1,10 +1,17 @@
 #! /bin/bash
 
-url="$1"
+URL=$1
 
-echo -e "GET / HTTP/1.1\n\n" |
-    ncat $url 443 |
+echo "HEAD / HTTP/1.1
+Host: $URL
+User-Agent: Netcat
+Accept: */*
+Accept-Encoding: identity
+Connection: close
+
+" | ncat $URL 443 |
     sed -n -r '
         1 p ;
-        /:/ p ;
+        :loop
+        /:/ { p ; n ; b loop }
     '
