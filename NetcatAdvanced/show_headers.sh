@@ -2,7 +2,7 @@
 
 URL=$1
 
-echo "HEAD / HTTP/1.1
+echo "GET / HTTP/1.1
 Host: $URL
 User-Agent: Netcat
 Accept: */*
