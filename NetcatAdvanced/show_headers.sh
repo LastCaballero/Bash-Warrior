@@ -7,9 +7,8 @@ Host: $URL
 User-Agent: Netcat
 Accept: */*
 Accept-Encoding: identity
-Connection: close
-
-" | ncat -ssl $URL 443 |
+Connection: Keep-Alive
+" | ncat --ssl $URL 443 |
     sed -n -r '
         1 p ;
         :loop
