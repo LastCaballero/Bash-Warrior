@@ -1,18 +1,23 @@
-#! /bin/bash
+#! /usr/bin/bash
 
-start_fake_service(){
-	port=$1
-	logfile="${port}.log"
-	while true
-	do
-		netcat -v -l $port 2>&1 |
-		while read line
-			do echo "$(date) $line"
-		done >> $logfile
-	done
+LOGFILE="attacks.log"
+
+fake_listener () {
+    local port=$1
+    while true ; do
+        netcat -l $port | read -t 1
+        echo "$(date) attack on port $port" >> $LOGFILE
+    done
 }
 
-for fake in $@
-do
-	start_fake_service $fake &
+ pids=()
+ports=()
+
+for port in $@ ; do
+    fake_listener $port &
+    ports+=( "$port " )
+     pids+=( "$! " )
 done
+
+echo "Running job-ids: ${pids[@]}"
+echo "Listening ports: ${ports[@]}"
