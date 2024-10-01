@@ -6,11 +6,19 @@ bei Variablen ist das Problem, dass man alles eng zusammen schreiben muss, wenn 
 ```sh
 eins=22
  abc=55
-wort="hallo"
+ wort="hallo"
 wort+=" Welt"
 # Hallo Welt darf natürlich nicht fehlen :-)
 ```
-Man kann es ein wenig schöner machen, indem alles etwas ungewönlich einrückt. 
+Man kann es ein wenig schöner machen, indem alles etwas ungewönlich einrückt. Wenn man jetzt einer Variablen eine Zahl zuweist, dann heißt das nicht, dass man wie gewohnt damit rechnen kann. Es ist dann erst mal nur ein **String**. Will man rechnen, dann sieht das so aus:
+
+```sh
+zahl=22
+(( zahl += 44 ))
+(( zahl++     ))
+zahl2=$(( zahl += 100 ))
+```
+Man sieht auch schon an der Schreibweise, dass man innerhalb doppelter Klammern auch etwas schöner formatierter schreiben kann.
 
 ## einfach Arrays
 ```sh
