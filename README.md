@@ -6,7 +6,9 @@ bei Variablen ist das Problem, dass man alles eng zusammen schreiben muss, wenn 
 ```sh
 eins=22
  abc=55
-   a="hallo"
+wort="hallo"
+wort+=" Welt"
+# Hallo Welt darf natürlich nicht fehlen :-)
 ```
 Man kann es ein wenig schöner machen, indem alles etwas ungewönlich einrückt. 
 
