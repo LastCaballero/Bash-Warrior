@@ -37,6 +37,14 @@ then
 fi
 ```
 
-Es wird abgefragt, ob in den Argumenten "help" oder "h" enthalten ist, und auch ob die Argument-Anzahl bei 0 liegt. Ist das der Fall, wird die Hilfe angezeigt.
+Es wird abgefragt, ob in den Argumenten "help" oder "h" enthalten ist, und auch ob die Argument-Anzahl bei 0 liegt. Ist das der Fall, wird die Hilfe angezeigt. Die Funktion `random_data` ist dafür zuständig, dass sinnlose Daten verschickt werden.
+
+```sh
+random_data () {
+    for (( i = 0 ; i < $(( $RANDOM % 50 + 10 )) ; i++ )) ; do
+        echo $(( $RANDOM % 256 ))
+    done
+}
+```
 
 
