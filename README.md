@@ -1,4 +1,7 @@
 # Die Bash
+
+## manchmal ein bisschen komplex...
+
 Im Allgmeineen ist die Bash ziemlich schwierig zu handhaben und Code auch schlecht zu lesen. Mit ein paar Kniffen, kann man das aber ändern.
 ## Variablen
 bei Variablen ist das Problem, dass man alles eng zusammen schreiben muss, wenn man eine Zuweisung machen will.
@@ -20,7 +23,7 @@ zahl2=$(( zahl += 100 ))
 ```
 Man sieht auch schon an der Schreibweise, dass man innerhalb doppelter Klammern auch etwas schöner formatierter schreiben kann.
 
-## einfach Arrays
+## einfache Arrays
 ```sh
  one=(1 2 3)    # deklarieren und befüllen
 one+=(44 55)    # etwas hinzufügen
