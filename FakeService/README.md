@@ -8,4 +8,24 @@ Kann man zum Beispiel starten, indem man einfach `./fake.sh` auf der Kommandozei
 ./fake.sh 4000
 ./fake.sh {4000..4010}
 ```
+## Das Skript kurz erklärt
+Das Skript startet auf folgende Weise:
+
+```sh
+#! /usr/bin/bash
+
+LOGFILE="attacks.log"
+declare -a ports
+
+show_help () {
+    local format="%-20s %s\n"
+    printf  "$format"    "start:"        "fake 4000 {5000..5005}"
+    printf  "$format"    "list:"         "ps -e | sort -k 4"
+    printf  "$format"    "terminate:"    "killall {fake.sh,netcat}"
+}
+```
+
+Einige Variablen werden deklariert, die man dann später auch gebraucht. Die Funktion `show_help` dient dazu, die Hilfe anzuzeigen.
+
+
 
