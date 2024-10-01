@@ -30,3 +30,10 @@ one+=(44 55)    # etwas hinzufügen
 declare -a zwei # so kann man auch einen Array deklarieren
 ```
 
+## Tricks
+### eine einfache Matrix
+Eine einfache Matrix-Simulation in einem Terminal zu erzeugen ist ziemlich einfach.
+```sh
+shuf -i 0-9 -z -r
+```
+
