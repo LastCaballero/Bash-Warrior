@@ -25,7 +25,18 @@ show_help () {
 }
 ```
 
-Einige Variablen werden deklariert, die man dann später auch gebraucht. Die Funktion `show_help` dient dazu, die Hilfe anzuzeigen.
+Einige Variablen werden deklariert, die man dann später auch gebraucht. Die Funktion `show_help` dient dazu, die Hilfe anzuzeigen. Der Inhalt der Funktion ist tabellenartig formatiert, was jetzt vielleicht nicht typisch Programmierer ist, aber ich denke, dass dies die Übersicht erhöht.
 
+Als nächstes kommt der Code, der darüber entscheidet, ob die Hilfe angezeigt wird oder nicht.
+
+```sh
+if ( grep -q -E "help|h" <<<$@ ) || (( $# == 0 ))
+then
+    show_help
+    exit 1
+fi
+```
+
+Es wird abgefragt, ob in den Argumenten "help" oder "h" enthalten ist, und auch ob die Argument-Anzahl bei 0 liegt. Ist das der Fall, wird die Hilfe angezeigt.
 
 
