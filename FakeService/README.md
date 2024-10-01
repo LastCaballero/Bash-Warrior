@@ -46,5 +46,26 @@ random_data () {
     done
 }
 ```
+Ist dicherlich keine einfach zu lesende Funktion, aber wenn man vernünftig formatiert und einfach mal was auseinander zieht, daann ist das sicherlich nicht ganz so unleserlich.
 
+Schließlich kommt dann noch die Funktion, die dafür sorgt, dass ein **Fake-Service** erzeugt wird.
+```sh
+fake_listener () {
+    local port=$1
+    while true ; do
+        random_data |
+        netcat -l $port | read -t 1
+        echo "$(date) connect on port $port" >> $LOGFILE
+    done
+}
+```
+Die braucht halt einen Port als Parameter. In einem While-Loop wird dann Netcat in Zusammenarbeit mit anderen Funktionen gestartet.
+Als letztes kommt dann noch:
 
+```sh
+for port in $@ ; do
+    fake_listener $port &
+    ports+=( "$port " )
+done
+```
+Dieser For-Loop verarbeitet die Argumente und startet einzelne Instanzen von Fake-Services im Hintergrund.
