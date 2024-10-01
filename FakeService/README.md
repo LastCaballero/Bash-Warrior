@@ -1,5 +1,6 @@
-# Bash FakeService
-It is simply listening on some ports and logging if someone tries to connect.
+# Fake-Service 
+Ein Fake-Serice ist ein Fake-Service, der gar kein richtiger Service ist. Der Zweck ist einfach festzustellen, ob oft versucht wird, diesen Port anzusprechen.
 
-## Start
-Simply type **./fake.sh 4000 4050**, to start listening and logging at specified ports.
+## Wie man das Skript starten kann.
+Kann man zum Beispiel starten, indem man einfach ./fake.sh auf der Kommandozeile eingibt. Mit Argumenten würde man ./fake.sh 4000 4010 starten.
+
