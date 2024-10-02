@@ -2,7 +2,23 @@
 
 ## manchmal ein bisschen komplex...
 
-Im Allgmeineen ist die Bash ziemlich schwierig zu handhaben und Code auch schlecht zu lesen. Mit ein paar Kniffen, kann man das aber ändern.
+Im Allgmeineen ist die Bash ziemlich schwierig zu handhaben und Code auch schlecht zu lesen. Mit ein paar Kniffen, kann man das aber ändern. Es ist auch nicht erforderlich, immer in irgendwelchen Tutorials oder so nachzugucken, wenn man etwas nicht weiß.
+Z.B. kann es sein, dass man nicht genau weiß, welcher Port von ssh-Servern benutzt wird. Man könnte jetzt einfach dumm googlen oder die allgegenwärtig künstliche Intelligenz befragen. Man könnte aber auch nmap benutzen.
+
+```sh
+nmap -p 22 200.200.200.33
+```
+Als Antwort bekommt man dann ungefähr das zu lesen:
+```sh
+###
+PORT   STATE  SERVICE
+22/tcp closed ssh
+MAC Address: 04:B4:FE:B8:4C:FE (Unknown)
+###
+```
+So hat man eine Antwort bekommen, die sich einprägt und hat nicht erst genervt gegoogelt und sich von der Sache an sich ablenken lassen. Und dazu hat man noch ein wenig gelernt mit nmap umzugehen. Man sollte sich selber auch nicht daran messen, was man am Anfang oder vielleicht auch später programmiert kriegt. Das **Wichtige** ist, dass man etwas beim Programmieren lernt. Und irgendwann kann man dann tatsächlich auch was. Man sollte nicht vergessen, dass Programmieren im Endeffekt das Lösen von Problemen ist, und auch den Fokus darauf legen sollte Probleme auf eigene Art und Weise zu lösen. Im Endeffekt ist das auch viel interessanter.
+
+
 ## Variablen
 bei Variablen ist das Problem, dass man alles eng zusammen schreiben muss, wenn man eine Zuweisung machen will.
 
