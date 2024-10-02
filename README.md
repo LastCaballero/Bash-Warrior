@@ -39,12 +39,21 @@ zahl2=$(( zahl += 100 ))
 ```
 Man sieht auch schon an der Schreibweise, dass man innerhalb doppelter Klammern auch etwas schöner formatierter schreiben kann.
 
-## einfache Arrays
+## einfache Arrays ( Datenketten )
 ```sh
  one=(1 2 3)    # deklarieren und befüllen
 one+=(44 55)    # etwas hinzufügen
 declare -a zwei # so kann man auch einen Array deklarieren
 ```
+Man sollte sich auch fragen, wofür man Arrays gebrauchen könnte, um dann auch sogleich etwas damit anfangen zu können. Grundlegende Operationen sind:
+
+### Was machen mit Datenketten ?
++ Datenkette abspeichern ( z.B. die Zeilen einer Datei )
+  ```sh
+  text_array=( $( cat datei ) ) # der Text der Datei würde in einem Array gespeichert
+      zahlen=( 1 2 3 4 5)       # Zahlen in einem Array
+  ```
+
 
 ## Tricks
 ### eine einfache Matrix
