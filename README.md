@@ -2,7 +2,7 @@
 
 ## manchmal ein bisschen komplex...
 
-Im Allgmeineen ist die Bash ziemlich schwierig zu handhaben und Code auch schlecht zu lesen. Die Dokumentationen dazu hat auch nicht gerade ein Schriftsteller geschrieben, und ich kann nicht empfehlen, diese zu lesen.
+Im Allgmeineen ist die Bash ziemlich schwierig zu handhaben und Code auch schlecht zu lesen. Die Dokumentationen dazu hat auch nicht gerade ein Schriftsteller geschrieben, und ich kann nicht empfehlen, diese zu lesen. Vielleicht hilft es, wenn man ein bisschen lernt wie eine Maschine zu denken, und Code entsprechend zu formatieren.
 
 
 
