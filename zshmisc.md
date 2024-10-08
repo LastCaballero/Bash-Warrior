@@ -1,9 +1,9 @@
-ZSHMISC(1)                 General Commands Manual                ZSHMISC(1)
+# ZSHMISC(1)                 General Commands Manual                ZSHMISC(1)
 
-NAME
-       zshmisc - everything and then some
+# NAME
+##       zshmisc - everything and then some
 
-SIMPLE COMMANDS & PIPELINES
+# SIMPLE COMMANDS & PIPELINES
        A simple command is a sequence of optional parameter assignments fol‐
        lowed by blank-separated words,  with  optional  redirections  inter‐
        spersed.   For a description of assignment, see the beginning of zsh‐
@@ -16,8 +16,9 @@ SIMPLE COMMANDS & PIPELINES
        status, or 128 plus the signal number if terminated by a signal.  For
        example,
 
+```sh
               echo foo
-
+```
        is a simple command with arguments.
 
        A  pipeline  is either a simple command, or a sequence of two or more
