@@ -39,6 +39,17 @@ zahl2=$(( zahl += 100 ))
 ```
 Man sieht auch schon an der Schreibweise, dass man innerhalb doppelter Klammern auch etwas schöner formatierter schreiben kann.
 
+## Einfache Befehle
+Wie der Name es schon sagt, wird es nicht besonders schwer. Einfache Befehle sehen so aus:
+
+```sh
+cat datei
+ls
+ls verzeichnis
+wc datei
+```
+
+
 ## einfache Arrays ( Datenketten )
 ```sh
  one=(1 2 3)    # deklarieren und befüllen
