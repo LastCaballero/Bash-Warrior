@@ -2,21 +2,8 @@
 
 ## manchmal ein bisschen komplex...
 
-Im Allgmeineen ist die Bash ziemlich schwierig zu handhaben und Code auch schlecht zu lesen. Mit ein paar Kniffen, kann man das aber ändern. Es ist auch nicht erforderlich, immer in irgendwelchen Tutorials oder so nachzugucken, wenn man etwas nicht weiß.
-Z.B. kann es sein, dass man nicht genau weiß, welcher Port von ssh-Servern benutzt wird. Man könnte jetzt einfach dumm googlen oder die allgegenwärtig künstliche Intelligenz befragen. Man könnte aber auch nmap benutzen.
+Im Allgmeineen ist die Bash ziemlich schwierig zu handhaben und Code auch schlecht zu lesen. Die Dokumentationen dazu hat auch nicht gerade ein Schriftsteller geschrieben.
 
-```sh
-nmap -p 22 200.200.200.33
-```
-Als Antwort bekommt man dann ungefähr das zu lesen:
-```sh
-###
-PORT   STATE  SERVICE
-22/tcp closed ssh
-MAC Address: 04:B4:FE:B8:4C:FE (Unknown)
-###
-```
-So hat man eine Antwort bekommen, die sich einprägt und hat nicht erst genervt gegoogelt und sich von der Sache an sich ablenken lassen. Und dazu hat man noch ein wenig gelernt mit nmap umzugehen. Man sollte sich selber auch nicht daran messen, was man am Anfang oder vielleicht auch später programmiert kriegt. Das **Wichtige** ist, dass man etwas beim Programmieren lernt. Und irgendwann kann man dann tatsächlich auch was. Man sollte nicht vergessen, dass Programmieren im Endeffekt das Lösen von Problemen ist, und auch den Fokus darauf legen sollte Probleme auf eigene Art und Weise zu lösen. Im Endeffekt ist das auch viel interessanter.
 
 
 ## Variablen
@@ -27,7 +14,6 @@ eins=22
  abc=55
  wort="hallo"
 wort+=" Welt"
-# Hallo Welt darf natürlich nicht fehlen :-)
 ```
 Man kann es ein wenig schöner machen, indem alles etwas ungewönlich einrückt. Wenn man jetzt einer Variablen eine Zahl zuweist, dann heißt das nicht, dass man wie gewohnt damit rechnen kann. Es ist dann erst mal nur ein **String**. Will man rechnen, dann sieht das so aus:
 
@@ -53,11 +39,30 @@ Pipes sind im Prinzip auch nicht so schwer nachzuvollziehen. Im Prinzip ist da n
 
 **befehl1**  |  **befehl2**  |  **befehl3**
 
-
 ```sh
 cat datei1 datei2 datei3  | less     # 3 Dateien auf einmal ausgeben und dann an den Pager Less weiter leiten.
 grep "Suche" datei        | nl       # Etwas in einer Datei suchen und nummeriert ausgeben.
 ```
+
+## Loops
+hier beschreibe ich mal den **While**- und den **For**-Loop:
+
+```sh
+while true
+do
+   echo hallo
+done
+```
+Es würde unendliche Male hallo geschrieben. Sicherlich kann man sinnvolleres Programmieren.
+```sh
+for zahl in 1 2 3
+do
+   echo $zahl
+done
+```
+Der For-Loop ist erst mal selbst erklärend.
+
+
 
 ## einfache Arrays ( Datenketten )
 ```sh
@@ -65,20 +70,10 @@ grep "Suche" datei        | nl       # Etwas in einer Datei suchen und nummerier
 one+=(44 55)    # etwas hinzufügen
 declare -a zwei # so kann man auch einen Array deklarieren
 ```
-Man sollte sich auch fragen, wofür man Arrays gebrauchen könnte, um dann auch sogleich etwas damit anfangen zu können. Grundlegende Operationen sind:
-
-### Was machen mit Datenketten ?
-+ Datenkette abspeichern ( z.B. die Zeilen einer Datei )
-  ```sh
-  text_array=( $( cat datei ) ) # der Text der Datei würde in einem Array gespeichert
-      zahlen=( 1 2 3 4 5)       # Zahlen in einem Array
-  ```
 
 
-## Tricks
-### eine einfache Matrix
-Eine einfache Matrix-Simulation in einem Terminal zu erzeugen ist ziemlich einfach.
-```sh
-shuf -i 0-9 -z -r
-```
+
+
+
+
 
