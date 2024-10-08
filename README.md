@@ -93,7 +93,24 @@ echo  ${ar[*]] # alle Elemente werden ausgegeben
 echo ${!ar[@]] # Sie Schlüssel werden ausgegeben
 echo ${!ar[*]] # Sie Schlüssel werden ausgegeben
 ```
-Auch hier spielt die viele Luft im Array keine Rolle. Man will ja schließlich erkennen können, was man programmiert oder erklärt. 
+Auch hier spielt die viele Luft im Array keine Rolle. Man will ja schließlich erkennen können, was man programmiert oder erklärt.
+
+
+
+## Skripte
+Skripte sind im Prinzip auch nicht so schwer.
+```sh
+#! /usr/bin/bash
+
+echo "Das  erste Argument ist $1"
+echo "Das zweite Argument ist $2"
+
+echo "wenn \$1 und \$2 zahlen sind, dann kann man..."
+echo "Das Ergebnis ist $(($1 + $2)) ausrechnen"
+
+echo "Es wurden $# Argumente übergeben"
+
+```
 
 
 
