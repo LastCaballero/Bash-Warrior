@@ -50,10 +50,13 @@ wc datei
 ```
 ## Pipes oder Tunnel
 Pipes sind im Prinzip auch nicht so schwer nachzuvollziehen. Im Prinzip ist da nur Befehle durch **Tunnel** miteinader zu verbinden.
-**befehl1** | **befehl2** | **befehl3**
+
+**befehl1**  |  **befehl2**  |  **befehl3**
+
+
 ```sh
-cat datei1 datei2 datei3 | less
-# man würde 3 Dateien auf einmal ausgeben und dann an den Pager Less weiter leiten.
+cat datei1 datei2 datei3  | less     # 3 Dateien auf einmal ausgeben und dann an den Pager Less weiter leiten.
+grep "Suche" datei        | nl       # Etwas in einer Datei suchen und nummeriert ausgeben.
 ```
 
 ## einfache Arrays ( Datenketten )
