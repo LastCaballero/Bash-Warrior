@@ -15,15 +15,14 @@ eins=22
  wort="hallo"
 wort+=" Welt"
 ```
-Man kann es ein wenig schöner machen, indem alles etwas ungewönlich einrückt. Wenn man jetzt einer Variablen eine Zahl zuweist, dann heißt das nicht, dass man wie gewohnt damit rechnen kann. Es ist dann erst mal nur ein **String**. Will man rechnen, dann sieht das so aus:
+Wenn man das so macht, sind die Zuweisungen für die Bash erst einmal nur Strings. Mann kann aber schon einiges damit anfangen.
 
 ```sh
-zahl=22
-(( zahl += 44 ))
-(( zahl++     ))
-zahl2=$(( zahl += 100 ))
+octet="[0-9]{1,3}"
+point="\."
+reg_ip_addr="${octet}${point}${octet}${point}${octet}${point}${octet}"
 ```
-Man sieht auch schon an der Schreibweise, dass man innerhalb doppelter Klammern auch etwas schöner formatierter schreiben kann.
+Man könnte zum Beispiel den regulären Ausdruck für eine Ip etwas leserlicher schreiben, wenn dieses überhaupt möglich ist.
 
 ## Einfache Befehle
 Wie der Name es schon sagt, wird es nicht besonders schwer. Einfache Befehle sehen so aus:
