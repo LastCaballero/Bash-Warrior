@@ -21,6 +21,7 @@ Wenn man das so macht, sind die Zuweisungen für die Bash erst einmal nur String
 octet="[0-9]{1,3}"
 point="\."
 reg_ip_addr="${octet}${point}${octet}${point}${octet}${point}${octet}"
+grep -Eo $reg_ip_addr text_datei
 ```
 Man könnte zum Beispiel den regulären Ausdruck für eine Ip etwas leserlicher schreiben, wenn dieses überhaupt möglich ist.
 
