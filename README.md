@@ -70,7 +70,10 @@ Der For-Loop ist erst mal selbst erklärend. Listen könne auch mit `{1..10}` er
   one+=(   44 55     )        # etwas hinzufügen
 zahlen=(  {1..100}   ) # 1 bis 100 würde in einem Array abgespeichert werden.
 ```
-Mann kann das auch beim Programmieren so "eigenartig" einrücken oder formatieren, um keinen **Augenkrebs** zu bekommen. Man braucht keine Angst zu haben, dass dann vielleicht zu viel Luft im Array ist.
+Mann kann das auch beim Programmieren so "eigenartig" einrücken oder formatieren, um keinen **Augenkrebs** zu bekommen. Man braucht keine Angst zu haben, dass dann vielleicht zu viel Luft im Array ist. Die Größe eines Arrays erhält man folgendermaßen:
+```sh
+echo "Die größe des Arrays zahlen ist ${#zahlen[@]}"
+```
 ## Assoziative Arrays
 Anstatt Indexe und Werte haben assoziative Arrays Schlüssel und die dazugehörigen Werte.
 
@@ -83,8 +86,10 @@ declare -A ar=(
            )
 
 echo  ${ar[a]] # es würde eine 1 ausgegeben.
+
 echo  ${ar[@]] # alle Elemente werden ausgegeben
 echo  ${ar[*]] # alle Elemente werden ausgegeben
+
 echo ${!ar[@]] # Sie Schlüssel werden ausgegeben
 echo ${!ar[*]] # Sie Schlüssel werden ausgegeben
 ```
