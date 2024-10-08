@@ -82,9 +82,9 @@ declare -A ar=(
               d 4
            )
 
-echo ${ar[a]]  # es würde eine 1 ausgegeben.
-echo ${ar[@]]  # alle Elemente werden ausgegeben
-echo ${ar[*]]  # alle Elemente werden ausgegeben
+echo  ${ar[a]] # es würde eine 1 ausgegeben.
+echo  ${ar[@]] # alle Elemente werden ausgegeben
+echo  ${ar[*]] # alle Elemente werden ausgegeben
 echo ${!ar[@]] # Sie Schlüssel werden ausgegeben
 echo ${!ar[*]] # Sie Schlüssel werden ausgegeben
 ```
