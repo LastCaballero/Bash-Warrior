@@ -75,13 +75,20 @@ Mann kann das auch beim Programmieren so "eigenartig" einrücken oder formatiere
 Anstatt Indexe und Werte haben assoziative Arrays Schlüssel und die dazugehörigen Werte.
 
 ```sh
-declare -A assoziativ=(
+declare -A ar=(
               a 1
               b 2
               c 3
               d 4
            )
+
+echo ${ar[a]]  # es würde eine 1 ausgegeben.
+echo ${ar[@]]  # alle Elemente werden ausgegeben
+echo ${ar[*]]  # alle Elemente werden ausgegeben
+echo ${!ar[@]] # Sie Schlüssel werden ausgegeben
+echo ${!ar[*]] # Sie Schlüssel werden ausgegeben
 ```
+Auch hier spielt die viele Luft im Array keine Rolle. Man will ja schließlich erkennen können, was man programmiert oder erklärt. 
 
 
 
