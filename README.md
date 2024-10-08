@@ -2,7 +2,7 @@
 
 ## manchmal ein bisschen komplex...
 
-Im Allgmeineen ist die Bash ziemlich schwierig zu handhaben und Code auch schlecht zu lesen. Die Dokumentationen dazu hat auch nicht gerade ein Schriftsteller geschrieben.
+Im Allgmeineen ist die Bash ziemlich schwierig zu handhaben und Code auch schlecht zu lesen. Die Dokumentationen dazu hat auch nicht gerade ein Schriftsteller geschrieben, und ich kann nicht empfehlen, diese zu lesen.
 
 
 
@@ -53,22 +53,34 @@ do
    echo hallo
 done
 ```
-Es würde unendliche Male hallo geschrieben. Sicherlich kann man sinnvolleres Programmieren.
+Es würde unendliche Male hallo geschrieben. Sicherlich kann man sinnvolleres Programmieren. Z.B. könnte man versuchen eine Matrix-Programm zu programmieren. 
 ```sh
 for zahl in 1 2 3
 do
    echo $zahl
 done
 ```
-Der For-Loop ist erst mal selbst erklärend.
+Der For-Loop ist erst mal selbst erklärend. Listen könne auch mit `{1..10}` erzeugt werden.
 
 
 
 ## einfache Arrays ( Datenketten )
 ```sh
- one=(1 2 3)    # deklarieren und befüllen
-one+=(44 55)    # etwas hinzufügen
-declare -a zwei # so kann man auch einen Array deklarieren
+   one=(1 2 3)        # deklarieren und befüllen
+  one+=(44 55)        # etwas hinzufügen
+zahlen=( {1..100} ) # 1 bis 100 würde in einem Array abgespeichert werden.
+```
+
+## Assoziative Arrays
+Anstatt Indexe und Werte haben assoziative Arrays Schlüssel und die dazugehörigen Werte.
+
+```sh
+declare -A assoziativ=(
+              a 1
+              b 2
+              c 3
+              d 4
+           )
 ```
 
 
