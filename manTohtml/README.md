@@ -1,13 +1,20 @@
 #  ManPage To HTML
-Es handelt sich um einen kleinen HTTP-Server, der Manpages lokal für Browser erreichbar zu Verfügung stellt. Gestartet wird einfach mit:
+Hier zeige ich, wie man mit einfachen Mitteln einen Webserver programmieren kann und eine statische Seite, z.B. eine Manpage zur Verfügung stellen kann. 
+
+Gestartet wird einfach mit:
 ```sh
 ./server
 ```
-Hierbei wird aber nur die Standard-Seite mit Grep angezeigt. Will man die Manpage für eine andere Seite angezeigt bekommen. Muss man diese angeben:
+Hierbei wird aber nur die Standard-Seite mit Grep angezeigt. Will man eine andere Manpage angezeigt bekommen, so startet man das Skript mit Parametern.
+
+Entweder kann nur eine Manpage angegeben werden, oder aber man gibt die Manpage mit einer Angabe mit Spaltenbreite an.
+
+Das sieht dann so aus:
 ```sh
 ./server sed
 ./server sed 70 # mit angabe der Spalten für die Manpage
 ```
+
 ## Das Skript kurz erklärt
 ### Grundlegendes
 Erst mal werden grundlegende Dinge festgelegt.
