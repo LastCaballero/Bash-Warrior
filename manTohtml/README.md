@@ -1,5 +1,5 @@
 #  ManPage To HTML
-Es handelt sich um einen kleinen HTTP-Server, der Manpages lokal für Browser erreichbar zur Verfügung stellt. Gestartet wird einfach mit:
+Es handelt sich um einen kleinen HTTP-Server, der Manpages lokal für Browser erreichbar zu Verfügung stellt. Gestartet wird einfach mit:
 ```sh
 ./server
 ```
@@ -58,7 +58,7 @@ netcat -l 4000
 
 $0 $1 $2
 ```
-
+Die letzte Zeile bewirkt einfach nur, dass das Skript von Neuem gestartet wird. Mit **Strg-C** kann man das Ganze beenden.
 
 
 
