@@ -10,7 +10,7 @@ sed -r -i '1 i \
 <html lang="en"> \
 <head> \
     <meta charset="UTF-8"> \
-    <title>Document</title> \
+    <title>'$help'</title> \
 </head> \
 <body style="margin: 45px"> \
 <p><pre> ' $file
